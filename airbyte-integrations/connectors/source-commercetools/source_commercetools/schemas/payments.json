@@ -1,104 +1,260 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
   "properties": {
-    "id": {
-      "type": ["null", "string"]
-    },
-    "key": {
-      "type": ["null", "string"]
-    },
-    "version": {
-      "type": ["null", "number"]
-    },
-    "createdAt": {
-      "type": ["null", "string"],
-      "format": "date-time"
-    },
-    "createdBy": {
-      "$ref": "created_by.json"
-    },
-    "lastModifiedAt": {
-      "type": ["null", "string"],
-      "format": "date-time"
-    },
-    "lastModifiedBy": {
-      "$ref": "last_modified_by.json"
-    },
-    "customer": {
-      "$ref": "reference.json"
-    },
-    "anonymousId": {
-      "type": ["null", "string"]
-    },
-    "interfaceId": {
-      "type": ["null", "string"]
+    "amountPaid": {
+      "properties": {
+        "centAmount": {
+          "type": "integer"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "fractionDigits": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "amountPlanned": {
-      "$ref": "money.json"
-    },
-    "paymentMethodInfo": {
-      "type": ["null", "object"],
       "properties": {
-        "paymentInterface": {
-          "type": ["null", "string"]
+        "centAmount": {
+          "type": "integer"
         },
-        "method": {
-          "type": ["null", "string"]
+        "currencyCode": {
+          "type": "string"
         },
-        "name": {
-          "$ref": "localized_string.json"
+        "fractionDigits": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "paymentStatus": {
-      "type": ["null", "object"],
+    "amountRefunded": {
       "properties": {
-        "interfaceCode": {
-          "type": ["null", "string"]
+        "centAmount": {
+          "type": "integer"
         },
-        "interfaceText": {
-          "type": ["null", "string"]
+        "currencyCode": {
+          "type": "string"
         },
-        "state": {
-          "$ref": "reference.json"
+        "fractionDigits": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "transactions": {
-      "type": ["null", "array"],
-      "items": {
-        "type": ["null", "object"],
-        "properties": {
-          "id": {
-            "type": ["null", "string"]
-          },
-          "timestamp": {
-            "type": ["null", "string"]
-          },
-          "type": {
-            "type": ["null", "string"]
-          },
-          "amount": {
-            "$ref": "money.json"
-          },
-          "interactionId": {
-            "type": ["null", "string"]
-          },
-          "state": {
-            "type": ["null", "string"]
-          }
+    "createdAt": {
+      "type": "string"
+    },
+    "createdBy": {
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
         }
-      }
-    },
-    "interfaceInteractions": {
-      "type": ["null", "array"],
-      "items": {
-        "$ref": "custom.json"
-      }
+      },
+      "type": "object"
     },
     "custom": {
-      "$ref": "custom.json"
+      "properties": {
+        "fields": {
+          "properties": {
+            "adyenMerchantAccount": {
+              "type": "string"
+            },
+            "commercetoolsProjectKey": {
+              "type": "string"
+            },
+            "getPaymentMethodsRequest": {
+              "type": "string"
+            },
+            "getPaymentMethodsResponse": {
+              "type": "string"
+            },
+            "makePaymentRequest": {
+              "type": "string"
+            },
+            "makePaymentResponse": {
+              "type": "string"
+            },
+            "submitAdditionalPaymentDetailsRequest": {
+              "type": "string"
+            },
+            "submitAdditionalPaymentDetailsResponse": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "customer": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "typeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "interfaceInteractions": {
+      "items": {
+        "properties": {
+          "fields": {
+            "properties": {
+              "createdAt": {
+                "type": "string"
+              },
+              "notification": {
+                "type": "string"
+              },
+              "request": {
+                "type": "string"
+              },
+              "response": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "typeId": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "key": {
+      "type": "string"
+    },
+    "lastMessageSequenceNumber": {
+      "type": "integer"
+    },
+    "lastModifiedAt": {
+      "type": "string"
+    },
+    "lastModifiedBy": {
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "paymentMethodInfo": {
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "name": {
+          "properties": {
+            "en": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "paymentInterface": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "paymentStatus": {
+      "type": "object"
+    },
+    "transactions": {
+      "items": {
+        "properties": {
+          "amount": {
+            "properties": {
+              "centAmount": {
+                "type": "integer"
+              },
+              "currencyCode": {
+                "type": "string"
+              },
+              "fractionDigits": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "id": {
+            "type": "string"
+          },
+          "interactionId": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "versionModifiedAt": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

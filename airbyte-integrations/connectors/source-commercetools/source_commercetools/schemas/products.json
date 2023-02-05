@@ -1,75 +1,1181 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
   "properties": {
-    "id": {
-      "type": ["null", "string"]
-    },
-    "key": {
-      "type": ["null", "string"]
-    },
-    "version": {
-      "type": ["null", "number"]
-    },
     "createdAt": {
-      "type": ["null", "string"],
-      "format": "date-time"
+      "type": "string"
     },
     "createdBy": {
-      "$ref": "created_by.json"
+      "properties": {
+        "isPlatformClient": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "lastMessageSequenceNumber": {
+      "type": "integer"
     },
     "lastModifiedAt": {
-      "type": ["null", "string"],
-      "format": "date-time"
+      "type": "string"
     },
     "lastModifiedBy": {
-      "$ref": "last_modified_by.json"
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
+        },
+        "user": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
-    "productType": {
-      "$ref": "reference.json"
+    "lastVariantId": {
+      "type": "integer"
     },
     "masterData": {
-      "type": ["null", "object"],
       "properties": {
-        "published": {
-          "type": ["null", "boolean"]
-        },
         "current": {
-          "$ref": "product_data.json"
-        },
-        "staged": {
-          "$ref": "product_data.json"
+          "properties": {
+            "categories": {
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "typeId": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "categoryOrderHints": {
+              "type": "object"
+            },
+            "description": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "masterVariant": {
+              "properties": {
+                "assets": {
+                  "type": "array"
+                },
+                "attributes": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "type": [
+                              "boolean",
+                              "number",
+                              "string"
+                            ]
+                          },
+                          {
+                            "properties": {
+                              "centAmount": {
+                                "type": "integer"
+                              },
+                              "currencyCode": {
+                                "type": "string"
+                              },
+                              "fractionDigits": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "properties": {
+                                  "en": {
+                                    "type": "string"
+                                  },
+                                  "fr": {
+                                    "type": "string"
+                                  },
+                                  "it": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "typeId": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          {
+                            "items": {
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "label": {
+                                  "properties": {
+                                    "en": {
+                                      "type": "string"
+                                    },
+                                    "fr": {
+                                      "type": "string"
+                                    },
+                                    "it": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "availability": {
+                  "properties": {
+                    "channels": {
+                      "properties": {
+                        "0eb9bfb8-c5d0-423f-88ef-eaa571f7b358": {
+                          "properties": {
+                            "availableQuantity": {
+                              "type": "integer"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "isOnStock": {
+                              "type": "boolean"
+                            },
+                            "restockableInDays": {
+                              "type": "integer"
+                            },
+                            "version": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "images": {
+                  "items": {
+                    "properties": {
+                      "dimensions": {
+                        "properties": {
+                          "h": {
+                            "type": "integer"
+                          },
+                          "w": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "prices": {
+                  "items": {
+                    "properties": {
+                      "channel": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "typeId": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "properties": {
+                          "centAmount": {
+                            "type": "integer"
+                          },
+                          "currencyCode": {
+                            "type": "string"
+                          },
+                          "fractionDigits": {
+                            "type": "integer"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaDescription": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaKeywords": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaTitle": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "name": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "searchKeywords": {
+              "type": "object"
+            },
+            "slug": {
+              "properties": {
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "variants": {
+              "items": {
+                "properties": {
+                  "assets": {
+                    "type": "array"
+                  },
+                  "attributes": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": [
+                                "boolean",
+                                "number",
+                                "string"
+                              ]
+                            },
+                            {
+                              "properties": {
+                                "centAmount": {
+                                  "type": "integer"
+                                },
+                                "currencyCode": {
+                                  "type": "string"
+                                },
+                                "fractionDigits": {
+                                  "type": "integer"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                },
+                                "label": {
+                                  "properties": {
+                                    "en": {
+                                      "type": "string"
+                                    },
+                                    "fr": {
+                                      "type": "string"
+                                    },
+                                    "it": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "typeId": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            {
+                              "items": {
+                                "properties": {
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "properties": {
+                                      "en": {
+                                        "type": "string"
+                                      },
+                                      "fr": {
+                                        "type": "string"
+                                      },
+                                      "it": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            }
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "availability": {
+                    "properties": {
+                      "channels": {
+                        "properties": {
+                          "0eb9bfb8-c5d0-423f-88ef-eaa571f7b358": {
+                            "properties": {
+                              "availableQuantity": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "isOnStock": {
+                                "type": "boolean"
+                              },
+                              "restockableInDays": {
+                                "type": "integer"
+                              },
+                              "version": {
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "images": {
+                    "items": {
+                      "properties": {
+                        "dimensions": {
+                          "properties": {
+                            "h": {
+                              "type": "integer"
+                            },
+                            "w": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "prices": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "properties": {
+                            "centAmount": {
+                              "type": "integer"
+                            },
+                            "currencyCode": {
+                              "type": "string"
+                            },
+                            "fractionDigits": {
+                              "type": "integer"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "sku": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
         },
         "hasStagedChanges": {
-          "type": ["null", "boolean"]
+          "type": "boolean"
+        },
+        "published": {
+          "type": "boolean"
+        },
+        "staged": {
+          "properties": {
+            "categories": {
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "typeId": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "categoryOrderHints": {
+              "type": "object"
+            },
+            "description": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "masterVariant": {
+              "properties": {
+                "assets": {
+                  "type": "array"
+                },
+                "attributes": {
+                  "items": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "anyOf": [
+                          {
+                            "type": [
+                              "boolean",
+                              "number",
+                              "string"
+                            ]
+                          },
+                          {
+                            "properties": {
+                              "centAmount": {
+                                "type": "integer"
+                              },
+                              "currencyCode": {
+                                "type": "string"
+                              },
+                              "fractionDigits": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "key": {
+                                "type": "string"
+                              },
+                              "label": {
+                                "properties": {
+                                  "en": {
+                                    "type": "string"
+                                  },
+                                  "fr": {
+                                    "type": "string"
+                                  },
+                                  "it": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "typeId": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          {
+                            "items": {
+                              "properties": {
+                                "key": {
+                                  "type": "string"
+                                },
+                                "label": {
+                                  "properties": {
+                                    "en": {
+                                      "type": "string"
+                                    },
+                                    "fr": {
+                                      "type": "string"
+                                    },
+                                    "it": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "availability": {
+                  "properties": {
+                    "channels": {
+                      "properties": {
+                        "0eb9bfb8-c5d0-423f-88ef-eaa571f7b358": {
+                          "properties": {
+                            "availableQuantity": {
+                              "type": "integer"
+                            },
+                            "id": {
+                              "type": "string"
+                            },
+                            "isOnStock": {
+                              "type": "boolean"
+                            },
+                            "restockableInDays": {
+                              "type": "integer"
+                            },
+                            "version": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "images": {
+                  "items": {
+                    "properties": {
+                      "dimensions": {
+                        "properties": {
+                          "h": {
+                            "type": "integer"
+                          },
+                          "w": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "label": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "prices": {
+                  "items": {
+                    "properties": {
+                      "channel": {
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "typeId": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "key": {
+                        "type": "string"
+                      },
+                      "validFrom": {
+                        "type": "string"
+                      },
+                      "validUntil": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "properties": {
+                          "centAmount": {
+                            "type": "integer"
+                          },
+                          "currencyCode": {
+                            "type": "string"
+                          },
+                          "fractionDigits": {
+                            "type": "integer"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "sku": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaDescription": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaKeywords": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "metaTitle": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "name": {
+              "properties": {
+                "de": {
+                  "type": "string"
+                },
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "searchKeywords": {
+              "type": "object"
+            },
+            "slug": {
+              "properties": {
+                "en": {
+                  "type": "string"
+                },
+                "fr": {
+                  "type": "string"
+                },
+                "it": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "variants": {
+              "items": {
+                "properties": {
+                  "assets": {
+                    "type": "array"
+                  },
+                  "attributes": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "anyOf": [
+                            {
+                              "type": [
+                                "boolean",
+                                "number",
+                                "string"
+                              ]
+                            },
+                            {
+                              "properties": {
+                                "centAmount": {
+                                  "type": "integer"
+                                },
+                                "currencyCode": {
+                                  "type": "string"
+                                },
+                                "fractionDigits": {
+                                  "type": "integer"
+                                },
+                                "id": {
+                                  "type": "string"
+                                },
+                                "key": {
+                                  "type": "string"
+                                },
+                                "label": {
+                                  "properties": {
+                                    "en": {
+                                      "type": "string"
+                                    },
+                                    "fr": {
+                                      "type": "string"
+                                    },
+                                    "it": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "typeId": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            {
+                              "items": {
+                                "properties": {
+                                  "key": {
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "properties": {
+                                      "en": {
+                                        "type": "string"
+                                      },
+                                      "fr": {
+                                        "type": "string"
+                                      },
+                                      "it": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            }
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "availability": {
+                    "properties": {
+                      "channels": {
+                        "properties": {
+                          "0eb9bfb8-c5d0-423f-88ef-eaa571f7b358": {
+                            "properties": {
+                              "availableQuantity": {
+                                "type": "integer"
+                              },
+                              "id": {
+                                "type": "string"
+                              },
+                              "isOnStock": {
+                                "type": "boolean"
+                              },
+                              "restockableInDays": {
+                                "type": "integer"
+                              },
+                              "version": {
+                                "type": "integer"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "images": {
+                    "items": {
+                      "properties": {
+                        "dimensions": {
+                          "properties": {
+                            "h": {
+                              "type": "integer"
+                            },
+                            "w": {
+                              "type": "integer"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "key": {
+                    "type": "string"
+                  },
+                  "prices": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "properties": {
+                            "centAmount": {
+                              "type": "integer"
+                            },
+                            "currencyCode": {
+                              "type": "string"
+                            },
+                            "fractionDigits": {
+                              "type": "integer"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "sku": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
         }
-      }
+      },
+      "type": "object"
     },
-    "taxCategory": {
-      "$ref": "reference.json"
-    },
-    "state": {
-      "$ref": "reference.json"
+    "productType": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "typeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "reviewRatingStatistics": {
-      "type": ["null", "object"],
       "properties": {
         "averageRating": {
-          "type": ["null", "number"]
-        },
-        "highestRating": {
-          "type": ["null", "number"]
-        },
-        "lowestRating": {
-          "type": ["null", "number"]
+          "type": "number"
         },
         "count": {
-          "type": ["null", "number"]
+          "type": "integer"
+        },
+        "highestRating": {
+          "type": "integer"
+        },
+        "lowestRating": {
+          "type": "integer"
         },
         "ratingsDistribution": {
-          "type": ["null", "object"]
+          "properties": {
+            "0": {
+              "type": "integer"
+            },
+            "1": {
+              "type": "integer"
+            },
+            "2": {
+              "type": "integer"
+            },
+            "3": {
+              "type": "integer"
+            },
+            "4": {
+              "type": "integer"
+            },
+            "5": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
         }
-      }
+      },
+      "type": "object"
+    },
+    "taxCategory": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "typeId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "versionModifiedAt": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

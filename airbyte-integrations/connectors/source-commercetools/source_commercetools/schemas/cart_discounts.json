@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "attributeTypes": {
+      "properties": {
+        "magentoID": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "cartFieldTypes": {
+      "type": "object"
+    },
+    "cartPredicate": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "createdBy": {
+      "properties": {
+        "isPlatformClient": {
+          "type": "boolean"
+        },
+        "user": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "customLineItemFieldTypes": {
+      "type": "object"
+    },
+    "description": {
+      "properties": {
+        "de": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        },
+        "it": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "key": {
+      "type": "string"
+    },
+    "lastModifiedAt": {
+      "type": "string"
+    },
+    "lastModifiedBy": {
+      "properties": {
+        "isPlatformClient": {
+          "type": "boolean"
+        },
+        "user": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "lineItemFieldTypes": {
+      "type": "object"
+    },
+    "name": {
+      "properties": {
+        "de": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "fr": {
+          "type": "string"
+        },
+        "it": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "references": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "typeId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "requiresDiscountCode": {
+      "type": "boolean"
+    },
+    "sortOrder": {
+      "type": "string"
+    },
+    "stackingMode": {
+      "type": "string"
+    },
+    "target": {
+      "properties": {
+        "predicate": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "validFrom": {
+      "type": "string"
+    },
+    "validUntil": {
+      "type": "string"
+    },
+    "value": {
+      "properties": {
+        "money": {
+          "items": {
+            "properties": {
+              "centAmount": {
+                "type": "integer"
+              },
+              "currencyCode": {
+                "type": "string"
+              },
+              "fractionDigits": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "permyriad": {
+          "type": "integer"
+        },
+        "product": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "supplyChannel": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        },
+        "variantId": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "versionModifiedAt": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

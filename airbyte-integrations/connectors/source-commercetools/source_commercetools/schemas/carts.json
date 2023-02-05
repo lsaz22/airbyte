@@ -42,16 +42,8 @@
       },
       "type": "object"
     },
-    "cart": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "typeId": {
-          "type": "string"
-        }
-      },
-      "type": "object"
+    "cartState": {
+      "type": "string"
     },
     "country": {
       "type": "string"
@@ -61,11 +53,49 @@
     },
     "createdBy": {
       "properties": {
+        "anonymousId": {
+          "type": "string"
+        },
         "clientId": {
           "type": "string"
         },
+        "customer": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
         "isPlatformClient": {
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "custom": {
+      "properties": {
+        "fields": {
+          "properties": {
+            "delivery-date": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
         }
       },
       "type": "object"
@@ -75,6 +105,9 @@
     },
     "customerId": {
       "type": "string"
+    },
+    "deleteDaysAfterLastModification": {
+      "type": "integer"
     },
     "directDiscounts": {
       "type": "array"
@@ -118,13 +151,13 @@
     },
     "lastModifiedBy": {
       "properties": {
+        "anonymousId": {
+          "type": "string"
+        },
         "clientId": {
           "type": "string"
         },
-        "isPlatformClient": {
-          "type": "boolean"
-        },
-        "user": {
+        "customer": {
           "properties": {
             "id": {
               "type": "string"
@@ -134,6 +167,9 @@
             }
           },
           "type": "object"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -612,6 +648,36 @@
                 },
                 "type": "array"
               },
+              "availability": {
+                "properties": {
+                  "channels": {
+                    "properties": {
+                      "0eb9bfb8-c5d0-423f-88ef-eaa571f7b358": {
+                        "properties": {
+                          "availableQuantity": {
+                            "type": "integer"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "isOnStock": {
+                            "type": "boolean"
+                          },
+                          "restockableInDays": {
+                            "type": "integer"
+                          },
+                          "version": {
+                            "type": "integer"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
               "id": {
                 "type": "integer"
               },
@@ -646,6 +712,20 @@
               "prices": {
                 "items": {
                   "properties": {
+                    "channel": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "typeId": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
                     "discounted": {
                       "properties": {
                         "discount": {
@@ -718,12 +798,6 @@
       },
       "type": "array"
     },
-    "orderNumber": {
-      "type": "string"
-    },
-    "orderState": {
-      "type": "string"
-    },
     "origin": {
       "type": "string"
     },
@@ -746,17 +820,8 @@
       },
       "type": "object"
     },
-    "paymentState": {
-      "type": "string"
-    },
     "refusedGifts": {
       "type": "array"
-    },
-    "returnInfo": {
-      "type": "array"
-    },
-    "shipmentState": {
-      "type": "string"
     },
     "shipping": {
       "type": "array"
@@ -1034,20 +1099,6 @@
     "shippingMode": {
       "type": "string"
     },
-    "state": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "typeId": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "syncInfo": {
-      "type": "array"
-    },
     "taxCalculationMode": {
       "type": "string"
     },
@@ -1231,6 +1282,9 @@
       },
       "type": "object"
     },
+    "totalLineItemQuantity": {
+      "type": "integer"
+    },
     "totalPrice": {
       "properties": {
         "centAmount": {
@@ -1247,9 +1301,6 @@
         }
       },
       "type": "object"
-    },
-    "transactionFee": {
-      "type": "boolean"
     },
     "type": {
       "type": "string"

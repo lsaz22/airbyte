@@ -120,6 +120,17 @@ class Products(IncrementalCommercetoolsStream):
     data_field = "products"
 
 
+class Carts(IncrementalCommercetoolsStream):
+    data_field = "carts"
+
+
+class CartDiscounts(IncrementalCommercetoolsStream):
+    data_field = "cart-discounts"
+
+
+class ProductDiscounts(IncrementalCommercetoolsStream):
+    data_field = "product-discounts"
+
 # Source
 class SourceCommercetools(AbstractSource):
     def _convert_auth_to_token(self, username: str, password: str) -> str:
@@ -178,4 +189,4 @@ class SourceCommercetools(AbstractSource):
             "client_secret": config["client_secret"],
         }
 
-        return [Customers(**args), Orders(**args), DiscountCodes(**args), Payments(**args), Products(**args)]
+        return [Customers(**args), Orders(**args), DiscountCodes(**args), Payments(**args), Products(**args), Carts(**args), CartDiscounts(**args), ProductDiscounts(**args)]

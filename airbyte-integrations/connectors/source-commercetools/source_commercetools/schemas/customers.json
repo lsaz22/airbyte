@@ -1,102 +1,213 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
   "properties": {
-    "id": {
-      "type": ["null", "string"]
-    },
-    "customerNumber": {
-      "type": ["null", "string"]
-    },
-    "key": {
-      "type": ["null", "string"]
-    },
-    "version": {
-      "type": ["null", "number"]
-    },
-    "createdAt": {
-      "type": ["null", "string"],
-      "format": " date-time"
-    },
-    "createdBy": {
-      "$ref": "created_by.json"
-    },
-    "lastModifiedAt": {
-      "type": ["null", "string"],
-      "format": " date-time"
-    },
-    "lastModifiedBy": {
-      "$ref": "last_modified_by.json"
-    },
-    "email": {
-      "type": ["null", "string"]
-    },
-    "password": {
-      "type": ["null", "string"]
-    },
-    "stores": {
-      "type": ["null", "array"],
-      "items": {
-        "$ref": "key_reference.json"
-      }
-    },
-    "firstName": {
-      "type": ["null", "string"]
-    },
-    "lastName": {
-      "type": ["null", "string"]
-    },
-    "middleName": {
-      "type": ["null", "string"]
-    },
-    "title": {
-      "type": ["null", "string"]
-    },
-    "salutation": {
-      "type": ["null", "string"]
-    },
-    "dateOfBirth": {
-      "type": ["null", "string"],
-      "format": "date"
-    },
-    "companyName": {
-      "type": ["null", "string"]
-    },
-    "vatId": {
-      "type": ["null", "string"]
-    },
     "addresses": {
-      "type": ["null", "array"],
       "items": {
-        "$ref": "address.json"
-      }
+        "properties": {
+          "apartment": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "streetName": {
+            "type": "string"
+          },
+          "streetNumber": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
-    "defaultShippingAddressId": {
-      "type": ["null", "string"]
-    },
-    "shippingAddressIds": {
-      "type": ["null", "array"]
-    },
-    "defaultBillingAddressId": {
-      "type": ["null", "string"]
+    "authenticationMode": {
+      "type": "string"
     },
     "billingAddressIds": {
-      "type": ["null", "array"]
+      "type": "array"
     },
-    "isEmailVerified": {
-      "type": ["null", "boolean"]
+    "createdAt": {
+      "type": "string"
     },
-    "externalId": {
-      "type": ["null", "string"]
-    },
-    "customerGroup": {
-      "$ref": "reference.json"
+    "createdBy": {
+      "properties": {
+        "anonymousId": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
+        },
+        "user": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "custom": {
-      "$ref": "custom.json"
+      "properties": {
+        "fields": {
+          "properties": {
+            "consent": {
+              "type": "boolean"
+            },
+            "newsletter": {
+              "type": "boolean"
+            },
+            "pseudonym": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
-    "locale": {
-      "type": ["null", "string"]
+    "customerNumber": {
+      "type": "string"
+    },
+    "dateOfBirth": {
+      "type": "string"
+    },
+    "defaultShippingAddressId": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "isEmailVerified": {
+      "type": "boolean"
+    },
+    "lastMessageSequenceNumber": {
+      "type": "integer"
+    },
+    "lastModifiedAt": {
+      "type": "string"
+    },
+    "lastModifiedBy": {
+      "properties": {
+        "anonymousId": {
+          "type": "string"
+        },
+        "clientId": {
+          "type": "string"
+        },
+        "customer": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "isPlatformClient": {
+          "type": "boolean"
+        },
+        "user": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "typeId": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "salutation": {
+      "type": "string"
+    },
+    "shippingAddressIds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stores": {
+      "type": "array"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "versionModifiedAt": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }
